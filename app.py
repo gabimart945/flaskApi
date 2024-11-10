@@ -2,12 +2,15 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_migrate import Migrate
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+# Habilitar CORS para toda la aplicación
+CORS(app)  # Permite solicitudes desde cualquier origen
 
 
 from models import Item
