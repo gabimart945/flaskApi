@@ -9,6 +9,10 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+
+from models import Item
+
+
 # Ejemplo de endpoint para obtener todos los elementos
 @app.route('/items', methods=['GET'])
 def get_items():
